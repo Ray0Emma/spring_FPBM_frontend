@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const INSTRUCTOR = "departement";
+const INSTRUCTOR = "Etudiant";
 const COURSE_API_URL = "http://localhost:8080";
 const INSTRUCTOR_API_URL = `${COURSE_API_URL}/${INSTRUCTOR}`;
 
@@ -23,6 +23,13 @@ class CourseDataService {
   createCourse(course) {
     return axios.post(`${INSTRUCTOR_API_URL}/`, course);
   }
+
+  uploadFile(file) {
+    return axios.post(`${INSTRUCTOR_API_URL}/uploadFile`, file);
+  }
+  // saveData(model) {
+  //   return axios.get(`${INSTRUCTOR_API_URL}/saveData`, model);
+  // }
 }
 
 export default new CourseDataService();

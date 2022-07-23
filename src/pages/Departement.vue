@@ -13,21 +13,29 @@
           <thead>
             <tr>
               <th scope="col">Id</th>
-              <th scope="col">Name</th>
-              <th scope="col">Update</th>
-              <th scope="col">Delete</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénom</th>
+              <th scope="col">CIN</th>
+              <th scope="col">CNE</th>
+              <!-- <th scope="col">Filiere</th> -->
+              <th scope="col">Modifier</th>
+              <th scope="col">Supprimer</th>
             </tr>
           </thead>
           <tbody v-for="dep in departement" v-bind:key="dep.id">
             <tr>
               <td>{{ dep.id }}</td>
-              <td>{{ dep.name }}</td>
+              <td>{{ dep.nom }}</td>
+              <td>{{ dep.prenom }}</td>
+              <td>{{ dep.cin }}</td>
+              <td>{{ dep.cne }}</td>
+              <!-- <td>{{ dep.etudiant_collection_filiere_id }}</td> -->
               <td>
                 <button
                   class="btn btn-success"
                   v-on:click="updateCourseClicked(dep.id)"
                 >
-                  Update
+                  Modifier
                 </button>
               </td>
               <td>
@@ -35,7 +43,7 @@
                   class="btn btn-warning"
                   v-on:click="deleteCourseClicked(dep.id)"
                 >
-                  Delete
+                  Supprimer
                 </button>
               </td>
             </tr>

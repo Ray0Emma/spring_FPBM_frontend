@@ -43,7 +43,7 @@ export default {
   methods: {
     refreshCourseDetails() {
       CourseDataService.retrieveCourse(this.id).then((res) => {
-        this.description = res.data.name;
+        this.description = res.data.nom;
       });
     },
     validateAndSubmit(e) {
@@ -58,14 +58,18 @@ export default {
       if (this.errors.length === 0) {
         if (this.id === -1) {
           CourseDataService.createCourse({
-            name: this.description,
+            nom: this.description,
           }).then(() => {
             this.$router.push("/courses");
           });
         } else {
           CourseDataService.updateCourse(this.id, {
             id: this.id,
-            name: this.description,
+            // email: null,
+            // password: null,
+            // cin: null,
+            // cne: "kmsij98",
+            nom: this.description,
           }).then(() => {
             this.$router.push("/courses");
           });
